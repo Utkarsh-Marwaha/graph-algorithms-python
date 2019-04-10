@@ -201,7 +201,7 @@ class AdjacencySetGraph(Graph):
         if v1 >= self.num_vertices or v2 >= self.num_vertices or v1 < 0 or v2 < 0:
             raise ValueError("Vertices %d and %d are out of bounds" % (v1, v2))
 
-        if weight !=1:
+        if weight != 1:
             raise ValueError("An adjacency set cannot represent edge weight > 1")
 
         self.vertices[v1].add_edge(v2)
@@ -225,8 +225,8 @@ class AdjacencySetGraph(Graph):
 
         in_degree = 0
 
-        for i in range(self.num_vertices):
-            if v in self.get_adjacent_vertices(i):
+        for node in range(self.num_vertices):
+            if v in self.get_adjacent_vertices(node):
                 in_degree += 1
 
         return in_degree
@@ -238,6 +238,7 @@ class AdjacencySetGraph(Graph):
         for from_vertex in range(self.num_vertices):
             for to_vertex in self.get_adjacent_vertices(from_vertex):
                 print(from_vertex, "-->", to_vertex)
+
 
 g = AdjacencySetGraph(4)
 
